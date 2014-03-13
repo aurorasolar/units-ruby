@@ -2,9 +2,9 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "units"
-  s.version     = '2.2'
-  s.authors     = ["Brandon Fosdick"]
+  s.name        = "units-in-ruby"
+  s.version     = '0.0.1'
+  s.authors     = ["Brandon Fosdick", "Meseker Yohannes"]
   s.email       = ["bfoz@bfoz.net"]
   s.homepage    = 'http://github.com/bfoz/units-ruby'
   s.summary     = %q{Extends Numeric to add support for tracking units of measure}
