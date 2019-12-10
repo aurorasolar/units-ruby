@@ -1,6 +1,6 @@
 module UnitsMixin
     attr_reader :units	# Returns the Units object
-    
+
     def self.included(base)
 	# Patch the including class to intercept various operators
 	base.instance_eval do
@@ -82,8 +82,10 @@ module UnitsMixin
 
     private
 
+    # Use the wrapper object for Rationals as it's frozen in Ruby 2.5
+    # This is also done in NumericMixin
     def apply_result_units(result, result_units)
-	if result.respond_to?(:units=)
+	if result.respond_to?(:units=) && !result.is_a?(Rational)
 	    result.units = result_units
 	    result
 	elsif result_units
