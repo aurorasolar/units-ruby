@@ -10,7 +10,7 @@ module NumericMixin
 	    #  instance. Consequently, any instance variable (such as @units)
 	    #  added to a literal becomes available to all literals of the
 	    #  same value.
-	    if self.is_a?(Fixnum) or self.is_a?(Float)
+	    if self.is_a?(Fixnum) || self.is_a?(Float) || self.is_a?(Rational)
 		Units::Numeric.new(self, units)	# Create a new wrapper object
 	    else
 		# Check that the class hasn't already been patched
