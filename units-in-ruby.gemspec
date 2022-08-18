@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://github.com/bfoz/units-ruby'
   s.summary     = %q{Extends Numeric to add support for tracking units of measure}
   s.description = %q{Extends Numeric to add support for tracking units of measure}
-  s.required_ruby_version = ">= 2.7.6"
+  s.required_ruby_version = ">= 2.7.6", "< 3.2"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
