@@ -19,7 +19,7 @@ Examples
     require 'units'
 
     three_meters = 3.meters
-    two_meters = 2.m
+    two_meters = 2.meters
     one_inch = 1.inch
 ```
 
