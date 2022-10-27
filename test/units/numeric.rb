@@ -126,72 +126,72 @@ describe Units::Numeric do
     end
 
     it "must divide a Rational" do
-      (Rational(2,1) / one_meter).must_equal Rational(2,1).meters(-1)
+      _(Rational(2,1) / one_meter).must_equal Rational(2,1).meters(-1)
     end
 
   end
 
   describe "integer arithmetic with normal literals" do
     it "should support multiplication" do
-      (three_meters * 4).must_equal twelve_meters
-      (three_meters * four).must_equal twelve_meters
+      _(three_meters * 4).must_equal twelve_meters
+      _(three_meters * four).must_equal twelve_meters
     end
 
     it "support division" do
-      (twelve_meters / 3).must_equal four_meters
-      (one_meter / 2).must_equal 0.meters
+      _(twelve_meters / 3).must_equal four_meters
+      _(one_meter / 2).must_equal 0.meters
     end
   end
 
   describe "arithmetic with mixed units" do
     it "should allow addition of valid units and no units" do
-      (three_meters + four).must_equal seven_meters
-      (four + three_meters).must_equal seven_meters
+      _(three_meters + four).must_equal seven_meters
+      _(four + three_meters).must_equal seven_meters
     end
 
     it "should allow subtraction of valid units and no units" do
-      (three_meters - three).must_equal 0.meters
-      (three - three_meters).must_equal 0.meters
+      _(three_meters - three).must_equal 0.meters
+      _(three - three_meters).must_equal 0.meters
     end
 
     it "should reject mixed units when adding" do
-      lambda { three_meters + three_inches }.must_raise UnitsError
+      _(lambda { three_meters + three_inches }).must_raise UnitsError
     end
 
     it "should reject mixed units when subtracting" do
-      lambda { three_meters - four_inches }.must_raise UnitsError
+      _(lambda { three_meters - four_inches }).must_raise UnitsError
     end
 
     it "must return a Vector when multiplying a Vector" do
       v = (three_meters * Vector[1,2])
-      v.must_be_kind_of Vector
-      v[0].must_equal three_meters
-      v[1].must_equal six_meters
+      _(v).must_be_kind_of Vector
+      _(v[0]).must_equal three_meters
+      _(v[1]).must_equal six_meters
     end
   end
 
   describe "comparison" do
     describe "spaceship" do
       it "must spaceship with like units" do
-        (three_meters <=> four_meters).must_equal -1
-        (three_meters <=> three_meters).must_equal 0
-        (four_meters <=> three_meters).must_equal 1
+        _(three_meters <=> four_meters).must_equal -1
+        _(three_meters <=> three_meters).must_equal 0
+        _(four_meters <=> three_meters).must_equal 1
       end
 
       it "must not spaceship with unlike units" do
-        (three_meters <=> three_inches).must_be_nil
+        _(three_meters <=> three_inches).must_be_nil
       end
 
       it "must spaceship with unitless literals" do
-        (three_meters <=> 4).must_equal -1
-        (three_meters <=> 3).must_equal 0
-        (four_meters <=> 3).must_equal 1
+        _(three_meters <=> 4).must_equal -1
+        _(three_meters <=> 3).must_equal 0
+        _(four_meters <=> 3).must_equal 1
       end
 
       it "must reverse spaceship with unitless literals" do
-        (3 <=> four_meters).must_equal -1
-        (3 <=> three_meters).must_equal 0
-        (4 <=> three_meters).must_equal 1
+        _(3 <=> four_meters).must_equal -1
+        _(3 <=> three_meters).must_equal 0
+        _(4 <=> three_meters).must_equal 1
       end
     end
   end

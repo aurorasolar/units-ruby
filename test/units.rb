@@ -202,7 +202,7 @@ describe Units do
     end
 
     it 'must reject invalid conversions' do
-      _(Units.meter.valid_conversion?(:hertz)).must_equal nil
+      assert_nil Units.meter.valid_conversion?(:hertz)
     end
   end
 

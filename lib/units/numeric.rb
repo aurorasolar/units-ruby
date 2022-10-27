@@ -40,7 +40,7 @@ class Units
 	# Convert other into something that can handle being divided by {Numeric}
 	def coerce(other)
 	    case other
-		when Fixnum then [Numeric.new(other), self]
+		when Integer then [Numeric.new(other), self]
 		when Float  then [Numeric.new(other), self]
 		else
 		    other.class.send(:include, UnitsMixin) unless other.kind_of?(UnitsMixin)
